@@ -21,7 +21,7 @@ export function Header({ className }: SidebarProps) {
   const items = [
     {
       href: 'https://map.sistilli.dev/public/coding/SaaS+Boilerplate',
-      title: 'Book a demo',
+      title: '',
       openInNewTab: true
     }
     // { href: '#pricing', title: 'Features' },
@@ -86,17 +86,21 @@ export function Header({ className }: SidebarProps) {
           return (
             <Link
               href={item.href}
-              className="pointer block w-fit"
+              className={cn(
+                "pointer block w-fit", 
+                selected ? "text-blue-500" : "text-gray-500"
+              )}
               target={item.openInNewTab ? '_blank' : ''}
               key={item.title}
             >
-           
+              {item.title}
             </Link>
           )
         })}
       </>
     )
   }
+  
 
   return (
     <div
